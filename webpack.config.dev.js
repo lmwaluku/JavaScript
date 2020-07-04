@@ -1,5 +1,5 @@
-import webpack from 'webpack';
 import path from 'path';
+var webpack = require('webpack');
 
 export default {
   devtool: 'inline-source-map',
@@ -12,15 +12,11 @@ export default {
     publicPath: '/',
     filename: 'bundle.js'
   },
-  plugins: [
-    new webpack.LoaderOptionsPlugin({
-        debug: true,
-        noInfo: false,
-      })
-  ],
+  mode: 'development',
+  plugins: [],
   module: {
     rules: [
-      {test: /\.js$/, exclude: /node_modules/, loaders: ['babel-loader']},
+      {test: /\.js$/, exclude: /node_modules/, loaders: 'babel-loader'},
       {test: /\.css$/, loaders: ['style-loader','css-loader']}
     ]
   }
